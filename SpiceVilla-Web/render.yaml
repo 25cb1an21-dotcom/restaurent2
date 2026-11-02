@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: spicevilla
+    runtime: python
+    buildCommand: python -m pip install -r requirements.txt
+    startCommand: python backend/server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: SPICEVILLA_HOST
+        value: 0.0.0.0
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: MYSQL_HOST
+        sync: false
+      - key: MYSQL_PORT
+        sync: false
+      - key: MYSQL_USER
+        sync: false
+      - key: MYSQL_PASSWORD
+        sync: false
+      - key: MYSQL_DATABASE
+        sync: false
